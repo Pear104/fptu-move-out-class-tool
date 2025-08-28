@@ -10,7 +10,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({
   isLoading,
   refresh,
+  // @ts-ignore
   handleStudentCount,
+  // @ts-ignore
   isRegisterCourse,
 }) => {
   return (

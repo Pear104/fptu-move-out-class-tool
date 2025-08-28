@@ -64,6 +64,7 @@ export default function App() {
       fetching: true,
     }));
     getCurrentStatus().then((res) => {
+      console.log(res);
       setStudentCount(res);
       setIsLoading((prev: any) => ({
         ...prev,
@@ -324,6 +325,7 @@ export default function App() {
           subject={subject}
           changeSubjectForm={changeSubjectForm}
           setIsLoading={setIsLoading}
+          isRegisterCourse={true}
           send={send}
         />
         {gotten < total && (
@@ -355,15 +357,15 @@ export default function App() {
       </div>
       {isFull && (
         <div className="text-2xl mb-4">
-          Nếu bạn có nhu cầu cần chuyển lớp đã full, liên hệ anh{" "}
+          Nếu bạn muốn chuyển lớp đã full, thử cách
           <a
-            href="https://www.facebook.com/trinh.thai.1111/"
+            className="ml-2"
+            href="https://pear104.github.io/fptu-move-out-class-tool/images/test.png"
             target="_blank"
             rel="noreferrer"
           >
-            Thái
+            này
           </a>{" "}
-          (All cơ sở)
         </div>
       )}
       <Timetable
@@ -381,7 +383,7 @@ export default function App() {
 
       <ClassListDetails handleDownload={handleDownload} />
       <TimetableDetails />
-      <MoveToFilledClass />
+      {/* <MoveToFilledClass /> */}
       <ShowOldFeature />
     </div>
   );

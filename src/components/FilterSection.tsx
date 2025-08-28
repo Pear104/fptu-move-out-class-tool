@@ -23,41 +23,42 @@ const FilterSection: React.FC<FilterSectionProps> = ({
   changeSubjectForm,
   setIsLoading,
   send,
+  // @ts-ignore
   isRegisterCourse,
 }) => {
   return (
     <div className="flex gap-6 items-center justify-between mb-3 mt-4">
       <div className="flex items-center text-[14px]">
-        {isRegisterCourse && (
-          <select
-            name=""
-            id=""
-            defaultValue={""}
-            className="border-2 rounded-md p-2 mt-2"
-            onChange={async (e) => {
-              setIsLoading((prev: any) => ({
-                ...prev,
-                moving: true,
-              }));
-              if (e.target.value) {
-                send(e.target.value, changeSubjectForm);
-              }
-            }}
-          >
-            <option value="" disabled>
-              Tìm theo môn học
-            </option>
-            {moveList?.map((move: any) => (
-              <option
-                key={move.moveId}
-                selected={subject.includes(move.subject)}
-                value={move?.moveId.replaceAll("_", "$")}
-              >{`${move?.subject} (${move?.classId} - ${
-                move?.lecturer.trim() == "" ? "N/A" : move?.lecturer
-              })`}</option>
-            ))}
-          </select>
-        )}
+        {/* {isRegisterCourse && ( */}
+        <select
+          name=""
+          id=""
+          defaultValue={""}
+          className="border-2 rounded-md p-2 mt-2"
+          onChange={async (e) => {
+            setIsLoading((prev: any) => ({
+              ...prev,
+              moving: true,
+            }));
+            if (e.target.value) {
+              send(e.target.value, changeSubjectForm);
+            }
+          }}
+        >
+          <option value="" disabled>
+            Tìm theo môn học
+          </option>
+          {moveList?.map((move: any) => (
+            <option
+              key={move.moveId}
+              selected={subject.includes(move.subject)}
+              value={move?.moveId.replaceAll("_", "$")}
+            >{`${move?.subject} (${move?.classId} - ${
+              move?.lecturer.trim() == "" ? "N/A" : move?.lecturer
+            })`}</option>
+          ))}
+        </select>
+        {/* )} */}
         <select
           name=""
           id=""

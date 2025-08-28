@@ -84,8 +84,10 @@ export const send = async (subject: string, formData: any) => {
     }
   );
 
-  console.log("redirect ne");
-  console.log(response.url);
+  // console.log("redirect ne");
+  // console.log(response);
+  // const data = await response.text();
+  // console.log(data);
   if (response.redirected) {
     // Automatically redirected
     window.location.href = response.url;
@@ -116,10 +118,11 @@ export const getCurrentSubjects = async () => {
         classId: $(e).find("td:nth-child(1)").text(),
         subject: $(e).find("td:nth-child(2)").text(),
         lecturer: $(e).find("td:nth-child(5)").text(),
-        moveId: $(e).find("td:nth-child(6) a").attr("id"),
+        moveId: $(e).find("td:nth-child(7) a").attr("id"),
       };
     })
     .get();
+  // console.log(currentSubjects);
   const __VIEWSTATE = encodeURIComponent($("#__VIEWSTATE").attr("value") || "");
   const __VIEWSTATEGENERATOR = $("#__VIEWSTATEGENERATOR").attr("value");
   const __EVENTVALIDATION = encodeURIComponent(
@@ -202,7 +205,7 @@ export const getCurrentStatus = async () => {
     const number = ($(el)[0].nextSibling as any).nodeValue
       .split("|")[1]
       .trim()
-      .replace("-(", "");
+      .split("-(")[0];
     result[course] = number;
   });
   subject.find('td:nth-child(3) a[href^="Groups.aspx"]').each((_, el) => {
@@ -210,7 +213,7 @@ export const getCurrentStatus = async () => {
     const number = ($(el)[0].nextSibling as any).nodeValue
       .split("|")[1]
       .trim()
-      .replace("-(", "");
+      .split("-(")[0];
     result[course] = number;
   });
   return result;

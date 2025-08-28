@@ -20,14 +20,6 @@ if (
   );
 } else if (
   window.location.href.startsWith(
-    "https://fap.fpt.edu.vn/FrontOffice/RegisterCourseFast.aspx"
-  )
-) {
-  ReactDOM.createRoot(document.querySelector(`${rootPath} div`)!).render(
-    <RegisterCourse />
-  );
-} else if (
-  window.location.href.startsWith(
     "https://fap.fpt.edu.vn/Report/ScheduleOfWeek.aspx"
   )
 ) {
@@ -36,3 +28,12 @@ if (
     label.innerHTML = "";
   });
 }
+// else if (
+//   window.location.href.startsWith(
+//     "https://fap.fpt.edu.vn/FrontOffice/RegisterCourseFast.aspx"
+//   )
+// ) {
+//   ReactDOM.createRoot(document.querySelector(`${rootPath} div`)!).render(
+//     <RegisterCourse />
+//   );
+// }
