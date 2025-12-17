@@ -325,7 +325,7 @@ export default function App() {
       </div>
       <div className="flex gap-6">
         <a
-          href="https://pear104.github.io/fptu-move-out-class-tool/images/cafe.png"
+          href="https://pear104.github.io/fptu-move-out-class-tool/images/cafe.jpg"
           target="_blank"
           className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
         >
