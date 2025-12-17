@@ -45,6 +45,7 @@ export default function App() {
     moving: false,
     fetching: false,
   });
+  const [version, setVersion] = useState("1.3.9");
   const [moveList, setMoveList] = useState<any>([]);
   const [studentCount, setStudentCount] = useState<any>({});
   const [changeSubjectForm, setChangeSubjectForm] = useState<any>({});
@@ -104,6 +105,7 @@ export default function App() {
             </div>
           `;
           setMessage(message);
+          setVersion(data1.version);
         });
     };
 
@@ -299,6 +301,13 @@ export default function App() {
   const MoveToFilledClass = () => (
     <div className="text-xl font-semibold flex gap-6 items-center mt-4">
       <a
+        href="https://chromewebstore.google.com/detail/fptu-move-out-class-tool/bmpjlffjfcpkjhgfjgponabjhkfmjkcb"
+        target="_blank"
+        className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
+      >
+        v1.3.9
+      </a>
+      <a
         href="https://chromewebstore.google.com/detail/fptu-move-out-class-tool/bmpjlffjfcpkjhgfjgponabjhkfmjkcb/reviews"
         target="_blank"
         className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
@@ -307,11 +316,20 @@ export default function App() {
       </a>
       <div className="flex gap-6">
         <a
-          href="https://web.facebook.com/truong.le.567651/"
+          href="https://facebook.com/truong.le.567651/"
           target="_blank"
           className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
         >
           Liên hệ
+        </a>
+      </div>
+      <div className="flex gap-6">
+        <a
+          href="https://pear104.github.io/fptu-move-out-class-tool/images/cafe.png"
+          target="_blank"
+          className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
+        >
+          Tặng cà phê ☕
         </a>
       </div>
     </div>
