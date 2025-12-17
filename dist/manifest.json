@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "FPTU Move Out Class Tool",
   "description": "Tiện ích hỗ trợ sinh viên FPTU xem lịch, chuyển lớp nhanh trên FAP",
-  "version": "1.3.8.3",
+  "version": "1.3.9",
   "content_scripts": [
     {
       "js": ["index.js"],

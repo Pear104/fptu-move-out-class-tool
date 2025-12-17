@@ -26,6 +26,7 @@ export default function App() {
   const id = url.slice(url.indexOf("id=") + 3).split("&")[0];
   const baseUrl = window.location.origin + window.location.pathname;
   const formData = formGetter(id);
+  const [message, setMessage] = useState("");
   let secondId = "";
   let subject =
     document.getElementById("ctl00_mainContent_lblSubject")?.textContent || "";
@@ -82,6 +83,13 @@ export default function App() {
   useEffect(() => {
     const fetchInitialData = async () => {
       await crawlAndSave();
+      await fetch(
+        "https://github.com/Pear104/fptu-move-out-class-tool/blob/main/noti.json"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setMessage(data.message);
+        });
     };
 
     fetchInitialData();
@@ -133,8 +141,9 @@ export default function App() {
             .get(day)
             ?.get(slot)
             ?.forEach((item: any) => {
-              if (!lecturerList.includes(item.split("(")[1].replace(")", ""))) {
-                lecturerList.push(item.split("(")[1].replace(")", ""));
+              let lecturer = item.split("(")[1].replace(")", "").split(" ")[0];
+              if (!lecturerList.includes(lecturer)) {
+                lecturerList.push(lecturer);
               }
             });
         });
@@ -209,7 +218,6 @@ export default function App() {
         classDetail[0].indexOf(" - Lecture:")
       );
 
-      //TODO: allow user to see classroom number
       for (const detail of classDetail) {
         const weekday = detail.slice(0, 3);
         const slot = detail.slice(11, 12);
@@ -245,14 +253,18 @@ export default function App() {
                 item.slice(item.indexOf("(") + 1, item.indexOf(")"))
               )
             ) {
-              lecturerListTemp.push(
-                item.slice(item.indexOf("(") + 1, item.indexOf(")"))
+              let lecturer = item.slice(
+                item.indexOf("(") + 1,
+                item.indexOf(")")
               );
+              console.log("lecturer temp", lecturer);
+              lecturerListTemp.push(lecturer);
               // lecturerListTemp.push(item.split("(")[1].replace(")", ""));
             }
           });
       });
     });
+    console.log("lecturerListTemp", lecturerListTemp);
     setLecturerList(lecturerListTemp);
     localStorage.setItem(
       "expireAt",
@@ -355,7 +367,8 @@ export default function App() {
           </span>
         )}
       </div>
-      {isFull && (
+      <div className="text-2xl mb-4">{message}</div>
+      {/* {isFull && (
         <div className="text-2xl mb-4">
           Nếu bạn muốn chuyển lớp đã full, thử cách
           <a
@@ -367,7 +380,7 @@ export default function App() {
             này
           </a>{" "}
         </div>
-      )}
+      )} */}
       <Timetable
         timeTable={timeTable}
         filter={filter}
