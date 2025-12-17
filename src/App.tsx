@@ -84,11 +84,25 @@ export default function App() {
     const fetchInitialData = async () => {
       await crawlAndSave();
       await fetch(
-        "https://github.com/Pear104/fptu-move-out-class-tool/blob/main/noti.json"
+        "https://pear104.github.io/fptu-move-out-class-tool/noti.json"
       )
         .then((response) => response.json())
         .then((data) => {
-          setMessage(data.message);
+          // const data1 = {
+          //   message: "Test 🥰🥳",
+          //   bg: "!bg-[#FE3B29]",
+          // };
+          const data1 = data;
+          const message = `
+            <div class="notification-container ${data1.bg}">
+              <span class="notification-dot animate-ping-slow mx-1"></span>
+              <span class="notification-text font-semibold text-xl">
+              ${data1.message}
+              </span>
+              <span class="notification-dot animate-ping-slow mx-1"></span>
+            </div>
+          `;
+          setMessage(message);
         });
     };
 
@@ -282,22 +296,21 @@ export default function App() {
   };
 
   const MoveToFilledClass = () => (
-    <div className="text-xl font-semibold flex gap-16 items-center mt-6">
+    <div className="text-xl font-semibold flex gap-6 items-center mt-6">
       <a
         href="https://chromewebstore.google.com/detail/fptu-move-out-class-tool/bmpjlffjfcpkjhgfjgponabjhkfmjkcb/reviews"
         target="_blank"
-        className="text-blue-500 hover:underline"
+        className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
       >
-        Feedback
+        Feedback 😇
       </a>
       <div className="flex gap-6">
-        Move to filled class:
         <a
-          href="https://www.facebook.com/trinh.thai.1111/"
+          href="https://web.facebook.com/truong.le.567651/"
           target="_blank"
-          className="text-blue-500 hover:underline"
+          className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
         >
-          All campus
+          Contact
         </a>
       </div>
     </div>
@@ -367,7 +380,11 @@ export default function App() {
           </span>
         )}
       </div>
-      <div className="text-2xl mb-4">{message}</div>
+      {/* if the message is html, how to load it? */}
+      <div
+        className="text-2xl mb-4"
+        dangerouslySetInnerHTML={{ __html: message }}
+      />
       {/* {isFull && (
         <div className="text-2xl mb-4">
           Nếu bạn muốn chuyển lớp đã full, thử cách
@@ -396,7 +413,7 @@ export default function App() {
 
       <ClassListDetails handleDownload={handleDownload} />
       <TimetableDetails />
-      {/* <MoveToFilledClass /> */}
+      <MoveToFilledClass />
       <ShowOldFeature />
     </div>
   );

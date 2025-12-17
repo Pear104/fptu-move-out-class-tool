@@ -222,6 +222,50 @@ const Timetable: React.FC<TimetableProps> = ({
             ))}
           </tr>
         ))}
+        {/* Test cell */}
+        {/* <tr className="" key={"123"}>
+          <td className="text-white bg-blue-500 font-bold border w-[80px] text-center px-3 py-4 m-auto">
+            <label
+              htmlFor={"123"}
+              className="flex justify-center items-center gap-2 !m-0 cursor-pointer"
+            >
+              <input
+                defaultChecked
+                className="!mt-0"
+                type="checkbox"
+                id={"123"}
+                checked={!filter.excludeSlots.includes("123")}
+                onChange={(e) => {
+                  setFilter((prev: any) => ({
+                    ...prev,
+                    excludeSlots: !e.target.checked
+                      ? [...filter.excludeSlots, "123"]
+                      : filter.excludeSlots.filter(
+                          (item: any) => item != "123"
+                        ),
+                  }));
+                }}
+              />
+              Slot 123
+            </label>
+          </td>
+          {weekdays.map((day) => (
+            <td
+              key={day}
+              className="border col-span-1 p-2 w-[200px]"
+              onClick={() => {}}
+            >
+              <div
+                className={`border-[0.5px] border-black font-bold p-2 rounded-md mb-2 bg-opacity-5 cursor-pointer hover:scale-[1.03] duration-200`}
+              >
+                <React.Fragment>
+                  Ahihi <br />
+                </React.Fragment>
+                <span className="text-lg mt-1">2 students</span>
+              </div>
+            </td>
+          ))}
+        </tr> */}
       </tbody>
     </table>
   );
