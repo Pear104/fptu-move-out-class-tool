@@ -13,9 +13,6 @@ document.querySelector(rootPath)?.appendChild(document.createElement("div"));
 if (
   window.location.href.startsWith(
     "https://fap.fpt.edu.vn/FrontOffice/MoveSubject.aspx"
-  ) ||
-  window.location.href.startsWith(
-    "https://fap.fpt.edu.vn/FrontOffice/Courses.aspx"
   )
 ) {
   ReactDOM.createRoot(document.querySelector(`${rootPath} div`)!).render(
