@@ -27,14 +27,14 @@ const FilterSection: React.FC<FilterSectionProps> = ({
   isRegisterCourse,
 }) => {
   return (
-    <div className="flex gap-6 items-center justify-between mb-3 mt-4">
-      <div className="flex items-center text-[14px]">
+    <div className="flex gap-6 items-center justify-between mb-3 mt-3">
+      <div className="flex items-center text-xl">
         {/* {isRegisterCourse && ( */}
         <select
           name=""
           id=""
           defaultValue={""}
-          className="border-2 rounded-md p-2 mt-2"
+          className="border-2 rounded-md p-2 h-full"
           onChange={async (e) => {
             setIsLoading((prev: any) => ({
               ...prev,
@@ -63,7 +63,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           name=""
           id=""
           value={filter.lecturer}
-          className="ml-4 border-2 rounded-md p-2 mt-2"
+          className="ml-4 border-2 rounded-md p-2 !h-full"
           onChange={(e) =>
             setFilter((prev: any) => ({
               ...prev,
@@ -85,7 +85,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
         <input
           name="search"
           id=""
-          className="w-[140px] ml-4 border-2 rounded-md p-2 mt-2"
+          className="w-[140px] ml-4 border-2 rounded-md p-2"
           placeholder="Tìm theo lớp"
           value={filter.classId}
           onChange={(e) => {
@@ -96,7 +96,9 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           }}
         />
         <div className="ml-4">
-          <span className="">Lọc sĩ số {`(≤ ${filter?.studentCount})`} </span>
+          <span className="text-lg">
+            Lọc sĩ số {`(≤ ${filter?.studentCount})`}{" "}
+          </span>
           <span className="flex gap-2 items-center">
             <input
               type="range"
@@ -127,7 +129,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
         </div>
 
         <span
-          className="cursor-pointer inline-block ml-4 mt-1 rounded-full !text-sm py-2 px-2 font-semibold bg-slate-500 hover:bg-slate-400 text-white"
+          className="cursor-pointer inline-block ml-4 mt-1 rounded-full !text-sm p-1 font-semibold bg-slate-500 hover:bg-slate-400 text-white"
           onClick={() =>
             setFilter({
               lecturer: "",
@@ -147,8 +149,8 @@ const FilterSection: React.FC<FilterSectionProps> = ({
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={16}
-            height={16}
+            width={12}
+            height={12}
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

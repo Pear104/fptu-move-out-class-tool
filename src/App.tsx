@@ -84,7 +84,8 @@ export default function App() {
     const fetchInitialData = async () => {
       await crawlAndSave();
       await fetch(
-        "https://pear104.github.io/fptu-move-out-class-tool/noti.json"
+        "https://pear104.github.io/fptu-move-out-class-tool/noti.json",
+        { cache: "no-cache" }
       )
         .then((response) => response.json())
         .then((data) => {
@@ -296,7 +297,7 @@ export default function App() {
   };
 
   const MoveToFilledClass = () => (
-    <div className="text-xl font-semibold flex gap-6 items-center mt-6">
+    <div className="text-xl font-semibold flex gap-6 items-center mt-4">
       <a
         href="https://chromewebstore.google.com/detail/fptu-move-out-class-tool/bmpjlffjfcpkjhgfjgponabjhkfmjkcb/reviews"
         target="_blank"
@@ -310,7 +311,7 @@ export default function App() {
           target="_blank"
           className="text-blue-500 !no-underline transition-all duration-200 border-blue-500 border-b-2 hover:border-transparent"
         >
-          Contact
+          Liên hệ
         </a>
       </div>
     </div>
@@ -335,7 +336,7 @@ export default function App() {
 
   return (
     <div className="w-full">
-      <div className="my-8">
+      <div className="mt-3">
         <Header
           isLoading={isLoading}
           refresh={refresh}
@@ -380,7 +381,6 @@ export default function App() {
           </span>
         )}
       </div>
-      {/* if the message is html, how to load it? */}
       <div
         className="text-2xl mb-4"
         dangerouslySetInnerHTML={{ __html: message }}

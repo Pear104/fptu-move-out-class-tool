@@ -16,27 +16,27 @@ const Header: React.FC<HeaderProps> = ({
   isRegisterCourse,
 }) => {
   return (
-    <div className="flex gap-6 items-center mb-3">
-      <div className="flex gap-6 items-center mb-3">
+    <div className="flex gap-6 items-center text-xl">
+      <div className="flex gap-5 items-center">
         {!isLoading.fetching && (
           <>
             <a
               href="https://docs.google.com/spreadsheets/d/1CTlmTC4RgW4zk-A9VTkz4BGzjY2PMk5s/edit"
-              className="group hover:bg-green-600 font-bold px-4 py-2 text-white text-2xl rounded-md bg-green-500 cursor-pointer gap-8"
+              className="group hover:bg-green-600 font-bold px-4 py-2 text-white rounded-md bg-green-500 cursor-pointer gap-8 !no-underline hover:!text-white"
               target="_blank"
             >
               Xem review GV
             </a>
             <span
               onClick={refresh}
-              className="font-bold px-4 py-2 text-white text-2xl rounded-md bg-green-500 cursor-pointer flex gap-8 hover:bg-green-600"
+              className="font-bold px-4 py-2 text-white rounded-md bg-green-500 cursor-pointer flex gap-8 hover:bg-green-600"
             >
               Làm mới
             </span>
             {!isRegisterCourse && (
               <div
                 onClick={handleStudentCount}
-                className="group hover:bg-green-600 font-bold px-4 py-2 text-white text-2xl rounded-md bg-green-500 cursor-pointer gap-8"
+                className="group hover:bg-green-600 font-bold px-4 py-2 text-white rounded-md bg-green-500 cursor-pointer gap-8"
                 id="studentCount"
                 title="(Có thể sẽ hơi lag)"
               >
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
 
         {(isLoading.moving || isLoading.fetching) && (
           <>
-            <div className="text-2xl">
+            <div className="">
               {isLoading.moving
                 ? "Đang thực hiện chuyển đổi, vui lòng đợi trong giây lát"
                 : "Đang lấy sĩ số lớp"}

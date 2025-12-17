@@ -9,7 +9,7 @@ const ClassListDetails: React.FC<ClassListDetailsProps> = ({
 }) => {
   return (
     <details className="p-4 [&_svg]:open:-rotate-180 mt-4">
-      <summary className="flex cursor-pointer list-none items-center gap-4 text-3xl">
+      <summary className="flex cursor-pointer list-none items-center gap-4 text-xl">
         <div>
           <svg
             className="rotate-0 transform text-blue-700 transition-all duration-300"
@@ -34,7 +34,7 @@ const ClassListDetails: React.FC<ClassListDetailsProps> = ({
           )
           <div
             onClick={handleDownload}
-            className="hover:bg-green-700 text-2xl font-bold py-2 px-4 bg-green-500 text-white rounded-md"
+            className="hover:bg-green-700 font-bold py-2 px-4 bg-green-500 text-white rounded-md"
           >
             Tải danh sách lớp
           </div>

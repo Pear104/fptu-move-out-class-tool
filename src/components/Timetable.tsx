@@ -102,14 +102,16 @@ const Timetable: React.FC<TimetableProps> = ({
   };
 
   return (
-    <table className="w-full rounded-lg">
+    <table className="w-full">
       <thead>
         <tr className="">
-          <td className="text-white bg-blue-500 font-bold border p-2 w-[100px] text-center"></td>
+          <td className="text-white bg-blue-500 font-bold p-2 w-[100px] text-center rounded-tl-2xl"></td>
           {weekdays.map((day) => (
             <td
               key={day}
-              className="text-white bg-blue-500 font-bold border px-2 py-3 w-[200px] text-center"
+              className={`text-white bg-blue-500 font-bold border px-2 py-3 w-[200px] text-center ${
+                day == "Sun" && "rounded-tr-2xl border-transparent"
+              }`}
             >
               <label
                 htmlFor={day}
@@ -141,7 +143,11 @@ const Timetable: React.FC<TimetableProps> = ({
       <tbody>
         {slots.map((slot: any) => (
           <tr className="" key={slot}>
-            <td className="text-white bg-blue-500 font-bold border w-[80px] text-center px-3 py-4 m-auto">
+            <td
+              className={`text-white bg-blue-500 font-bold border w-[80px] text-center px-3 py-4 m-auto ${
+                slot == "8" && "rounded-bl-2xl border-transparent"
+              }`}
+            >
               <label
                 htmlFor={slot}
                 className="flex justify-center items-center gap-2 !m-0 cursor-pointer"

@@ -6,7 +6,7 @@ interface TimetableDetailsProps {}
 const TimetableDetails: React.FC<TimetableDetailsProps> = () => {
   return (
     <details className="p-4 [&_svg]:open:-rotate-180">
-      <summary className="flex cursor-pointer list-none items-center gap-4 text-3xl">
+      <summary className="flex cursor-pointer list-none items-center gap-4 text-xl">
         <div>
           <svg
             className="rotate-0 transform text-blue-700 transition-all duration-300"
